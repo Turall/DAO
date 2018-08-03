@@ -85,7 +85,7 @@ public:
 	}
 };
 
-class Teacher { // id,ad, soyad, mobil nomre, voen, maash, ayin maashi verilib / yoxsa yox
+class Teacher {
 	INT id;
 	string name;
 	string surname;
@@ -368,7 +368,7 @@ public:
 };
 StudentDAO* StudentDAO::instance = nullptr;
 
-class TeacherDAO {
+class TeacherDAO { //Singleton
 	list<Teacher> List_teachers;
 	static TeacherDAO* instance;
 	TeacherDAO() {}
@@ -472,7 +472,7 @@ public:
 };
 TeacherDAO* TeacherDAO::instance = nullptr;
 
-class PaymentDAO {
+class PaymentDAO {  //Singleton
 	Student stud;
 	list<Payment> payments;
 	static PaymentDAO *instance;
@@ -532,7 +532,7 @@ public:
 };
 PaymentDAO* PaymentDAO::instance = nullptr;
 
-class SalaryDAO {
+class SalaryDAO { //Singleton
 	list<Salary> salaries;
 	static SalaryDAO* instance;
 	SalaryDAO() {}
@@ -637,7 +637,7 @@ public:
 };
 StudentService* StudentService::instance = nullptr;
 
-class TeacherService {
+class TeacherService { //Singleton
 	TeacherDAO *Teacher_service;
 	static TeacherService *instance;
 	TeacherService() {
@@ -705,7 +705,7 @@ public:
 };
 TeacherService* TeacherService::instance = nullptr;
 
-class PaymentService {
+class PaymentService { //Singleton
 	PaymentDAO* paymentdao;
 	StudentDAO* studentdao;
 	static PaymentService* instance;
@@ -751,7 +751,7 @@ public:
 };
 PaymentService* PaymentService::instance = nullptr;
 
-class SalaryService {
+class SalaryService { //Singleton
 	SalaryDAO* salary_dao;
 	static SalaryService* instance;
 	SalaryService() {
@@ -923,7 +923,7 @@ public:
 };
 StudentController* StudentController::instance = nullptr;
 
-class TeacherController {
+class TeacherController { //Singleton
 	TeacherService *TeacControl;
 	static TeacherController* instance;
 	TeacherController() {
@@ -1070,7 +1070,7 @@ public:
 };
 TeacherController* TeacherController::instance = nullptr;
 
-class PaymentController {
+class PaymentController { //Singleton
 	StudentController* stdc;
 	PaymentService* payment_service;
 	static PaymentController* instance;
@@ -1150,7 +1150,7 @@ public:
 };
 PaymentController* PaymentController::instance = nullptr;
 
-class SalaryController {
+class SalaryController { //Singleton
 	Time t;
 	TeacherController* teaccont;
 	SalaryService* salary_cont;
@@ -1223,7 +1223,7 @@ public:
 };
 SalaryController* SalaryController::instance = nullptr;
 
-class StudentInterface {
+class StudentInterface { 
 	StudentController *Stud;
 	PaymentController *StudentPay;
 public:
@@ -1383,7 +1383,7 @@ public:
 };
 
 
-class AccountantInterface { //Muhasib Interfeysi
+class AccountantInterface { 
 	StudentController *Stud;
 	TeacherController *TCC;
 	PaymentController *StudentPay;
